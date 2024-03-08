@@ -1,0 +1,175 @@
+<html>
+  <head>
+  <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-4.5.1.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <link rel="stylesheet" href="test.css" />
+   </head>
+    <div class="l-docs">
+    <div class="l-docs__header">
+        <header id="navigation" class="p-navigation is-dark">
+        <div class="l-docs__subgrid">
+            <div class="l-docs__sidebar">
+            <div class="p-navigation__banner">
+                <div class="p-navigation__tagged-logo">
+                <a class="p-navigation__link" href="#">
+                    <div class="p-navigation__logo-tag">
+                    <img class="p-navigation__logo-icon" src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
+                    </div>
+                    <span class="p-navigation__logo-title">UbuCon</span>
+                </a>
+                </div>
+                <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+                <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+            </div>
+            </div>
+            <div class="l-docs__main">
+            <div class="p-navigation__row u-fixed-width">
+                <nav class="p-navigation__nav" aria-label="Example main">
+                <ul class="p-navigation__items">
+                    <li class="p-navigation__item">
+                    <a class="p-navigation__link" href="#">About UbuCon</a>
+                    </li>
+                    <li class="p-navigation__item is-selected">
+                    <a class="p-navigation__link" href="#">Find an UbuCon</a>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+            </div>
+        </div>
+        </header>
+<section class="p-strip is-shallow">
+  <div class="row--25-75 u-vertically-center">
+    <div class="col u-hide--small">
+      <img src="img/community.png?h=300" alt="">
+    </div>
+    <div class="col">
+      <h2>UbuCon's bring the global Ubuntu community together!</h2>
+      <p>UbuCons, shorthand for Ubuntu Conventions, are gatherings of Ubuntu users, enthusiasts adovcates and devlopers.</p>
+    </div>
+  </div>
+</section>
+    </div>
+
+    <div class="l-docs__title" id="main-content">
+        <div class="p-section--shallow">
+        <div class="row">
+            <div class="col-12">
+            <h2>Find an UbuCon in your area</h2>
+            </div>
+        </div>
+        </div>
+    </div>
+
+  <main class="l-docs__main">
+      <div class="row">
+        <div class="col-12">
+    <div id="map" style="height: 600px;"></div>
+
+    <!-- Event table -->
+    <table id="eventTable">
+        <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Location</th>
+                <th>URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Events will be added here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        // Initialize Leaflet map
+        var map = L.map('map').setView([0, 0], 2);
+
+        // Add OpenStreet Maps base layer (optional)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Define custom marker icon
+        var customIcon = L.icon({
+            iconUrl: 'img/marker.png', // Path to custom marker icon
+            iconSize: [32, 32], // Size of the icon
+            iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
+            popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
+        });
+
+        // Function to add markers and events to the map and table
+        async function addMarkersAndEventsFromJSON() {
+            try {
+                // Fetch events.json file
+                const response = await fetch('events.json');
+                const eventsData = await response.json();
+
+                // Iterate over events
+                eventsData.forEach(event => {
+                    // Extract data
+                    const coordinates = event.coordinates;
+                    const eventName = event.event;
+                    const address = event.address;
+                    const url = event.url;
+
+                    // Add marker to the map using custom icon
+                    L.marker(coordinates, { icon: customIcon }).addTo(map)
+                        .bindPopup(`<b>${eventName}</b><br/><a href="${url}" target="_blank">More info</a>`);
+
+                    // Add event to the table
+                    const eventRow = document.createElement('tr');
+                    eventRow.innerHTML = `
+                        <td>${eventName}</td>
+                        <td>${address}</td>
+                        <td><a href="${url}" target="_blank">More info</a></td>
+                    `;
+                    document.getElementById('eventTable').getElementsByTagName('tbody')[0].appendChild(eventRow);
+                });
+            } catch (error) {
+                console.error('Error loading events.json:', error);
+            }
+        }
+
+        // Call function to add markers and events from events.json
+        addMarkersAndEventsFromJSON();
+    </script>
+
+          <h3>Event not listed?</h3>
+
+          <div class="p-notification">
+            <p class="p-notification__content">
+              Do you need your UbuCon event listed? Check out this quick guide on our <a href="https://github.com/aaronprisk/ubucon.org">GitHub</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main></div>
+
+
+  <div class="l-docs__footer">
+    <footer class="p-strip--dark l-docs__subgrid">
+      <div class="l-docs__sidebar">
+        <p style="padding-left: 1.5rem"></p>
+      </div>
+      <div class="l-docs__main">
+        <nav class="row" aria-label="Footer">
+          <div class="has-cookie">
+            <p><a class="is-dark" href="https://ubuntu.com/">Ubuntu</a> and <a class="is-dark" href="https://canonical.com/">Canonical</a> are registered trademarks of Canonical Ltd.</p>
+            <ul class="p-inline-list--middot">
+              <li class="p-inline-list__item">
+                <a class="is-dark" href="https://ubuntu.com/legal"><small>Legal information</small></a>
+              </li>
+              <li class="p-inline-list__item">
+                <a class="is-dark" href="https://github.com/aaronprisk/ubucon.org"><small>Report a bug on this site</small></a>
+              </li>
+            </ul>
+            <span class="u-off-screen"><a href="#">Go to the top of the page</a></span>
+          </div>
+        </nav>
+      </div>
+    </footer>
+  </div>
+</html>
+
+
