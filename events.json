@@ -3,18 +3,21 @@
         "coordinates": [34.1495515, -118.141449],
         "address": "300 E Green St, Pasadena, CA 91101",
         "event": "UbuCon @ SCaLE",
+        "date": "2024-03-14",
         "url": "https://www.socallinuxexpo.org/scale/21x/ubucon"
     },
     {
         "coordinates": [44.513290, -88.013260],
         "address": "TBD, Green Bay, WI 54304",
         "event": "UbuCon North America",
+        "date": "TBD",
         "url": "https://twitter.com/UbuConNA"
     },
     {
         "coordinates": [4.570868, -74.297333],
         "address": "TBD",
         "event": "UbuCon Latin America",
+        "date": "TBD",
         "url": "https://ubuconla.org/"
     }
 ]
