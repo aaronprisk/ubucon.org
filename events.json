@@ -19,5 +19,12 @@
         "event": "UbuCon Latin America",
         "date": "TBD",
         "url": "https://ubuconla.org/"
+    },
+    {
+        "coordinates": [26.752520, 75.821080],
+        "address": "Plot No. IS-2036 to IS-2039 Ramchandrapura Industrial Area Jaipur, Sitapura, Vidhani, Rajasthan 303905, India",
+        "event": "UbuCon Asia",
+        "date": "2024-08-31",
+        "url": "https://2024.ubucon.asia/"
     }
 ]
