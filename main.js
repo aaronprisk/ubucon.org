@@ -1,3 +1,7 @@
+// FIXME: this file is not actually used yet!
+// Once we move this onto the Real(tm) UbuCon.org, the inline JS should be copied here
+// and this file should be used instead
+
 // Initialize Leaflet map
 var map = L.map('map').setView([0, 0], 2);
 
