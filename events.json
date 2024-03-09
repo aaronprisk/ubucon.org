@@ -9,7 +9,7 @@
     {
         "coordinates": [44.513290, -88.013260],
         "address": "TBD, Green Bay, WI 54304",
-        "event": "UbuCon North America",
+        "event": "UbuCon North America 2024",
         "date": "2024-08",
         "url": "https://twitter.com/UbuConNA"
     },
@@ -23,21 +23,21 @@
     {
         "coordinates": [26.752520, 75.821080],
         "address": "Plot No. IS-2036 to IS-2039 Ramchandrapura Industrial Area Jaipur, Sitapura, Vidhani, Rajasthan 303905, India",
-        "event": "UbuCon Asia",
+        "event": "UbuCon Asia 2024",
         "date": "2024-08-31",
         "url": "https://2024.ubucon.asia/"
     },
     {
         "coordinates": [40.630692, -8.654120],
         "address": "Universidade de Aveiro, 3810-193 Aveiro, Portugal",
-        "event": "UbuCon Portugal",
+        "event": "UbuCon Portugal 2024",
         "date": "2024-10-11",
         "url": "https://discourse.ubuntu.com/t/announcing-ubucon-portugal-2024/42438"
     },
     {
         "coordinates": [4.570868, -74.297333],
         "address": "TBD",
-        "event": "UbuCon Latin America",
+        "event": "UbuCon Latin America 2024",
         "date": "TBD",
         "url": "https://ubuconla.org/"
     }
