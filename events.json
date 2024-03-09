@@ -21,6 +21,13 @@
         "url": "https://2024.ubucon.asia/"
     },
     {
+        "coordinates": [40.630692, -8.654120],
+        "address": "Universidade de Aveiro, 3810-193 Aveiro, Portugal",
+        "event": "UbuCon Portugal",
+        "date": "2024-10-11",
+        "url": "https://discourse.ubuntu.com/t/announcing-ubucon-portugal-2024/42438"
+    },
+    {
         "coordinates": [4.570868, -74.297333],
         "address": "TBD",
         "event": "UbuCon Latin America",
