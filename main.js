@@ -1,29 +1,17 @@
-// FIXME: this file is not actually used yet!
-// Once we move this onto the Real(tm) UbuCon.org, the inline JS should be copied here
-// and this file should be used instead
-
-// Initialize Leaflet map
-var map = L.map('map').setView([0, 0], 2);
-
-// Add OpenStreet Maps base layer (optional)
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-// Define custom marker icon
 var customIcon = L.icon({
     iconUrl: 'img/marker.png', // Path to custom marker icon
-    iconSize: [32, 32], // Size of the icon
-    iconAnchor: [16, 32], // Point of the icon which will correspond to marker's location
-    popupAnchor: [0, -32] // Point from which the popup should open relative to the iconAnchor
+    iconSize: [32, 32],        // Size of the icon
+    iconAnchor: [16, 32],      // Point of the icon which will correspond to marker's location
+    popupAnchor: [0, -32]      // Point from which the popup should open relative to the iconAnchor
 });
 
-// Function to add markers and events to the map and table
-async function addMarkersAndEventsFromJSON() {
+
+async function addMarkersAndEventsFromJSON(map) {
     try {
         // Fetch events.json file
         const response = await fetch('events.json');
         const eventsData = await response.json();
+
         var eventCoordinates = [];
 
         // Iterate over events
@@ -63,5 +51,16 @@ async function addMarkersAndEventsFromJSON() {
     }
 }
 
-// Call function to add markers and events from events.json
-addMarkersAndEventsFromJSON();
+// Only execute these functions once the window has fully loaded
+window.onload = function() {
+    // Initialize Leaflet map
+    var map = L.map('map').setView([0, 0], 2);
+
+    // Add OpenStreet Maps base layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Call function to add markers and events from events.json, passing in the map
+    addMarkersAndEventsFromJSON(map);
+};
