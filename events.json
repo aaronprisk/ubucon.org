@@ -1,12 +1,5 @@
 [
     {
-        "coordinates": [34.1495515, -118.141449],
-        "address": "300 E Green St, Pasadena, CA 91101",
-        "event": "UbuCon @ SCaLE 21x",
-        "date": "2024-03-14",
-        "url": "https://www.socallinuxexpo.org/scale/21x/ubucon"
-    },
-    {
         "coordinates": [44.524929, -88.106941],
         "address": "2740 W Mason St, Green Bay, WI 54307",
         "event": "UbuCon North America 2024",
@@ -36,11 +29,11 @@
     },
     {
         "coordinates": [4.570868, -74.297333],
-        "address": "TBD",
+        "address": "2024-08-16",
         "event": "UbuCon Latin America 2024",
         "date": "TBD",
         "url": "https://ubuconla.org/"
-    }
+    },
         {
         "coordinates": [3.1531161, 101.7100402],
         "address": "Kuala Lumpur Convention Centre, Kuala Lumpur, Malaysia",
