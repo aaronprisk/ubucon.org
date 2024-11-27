@@ -1,4 +1,12 @@
 [    {
+        "coordinates": [37.574686, 126.979017],
+        "address": "Microsoft Korea, 50 Jong-ro 1-gil, Jongno-gu, Seoul",
+        "event": "UbuCon Korea 2025",
+        "date": "2025-09-09",
+        "url": "https://2025.ubuntu-kr.org/"
+    },
+
+    {
         "coordinates": [27.693269, 85.321012],
         "address": "St. Xavier's College, Maitighar, Kathmandu, Nepal",
         "event": "UbuCon Asia 2025",
