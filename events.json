@@ -1,4 +1,12 @@
 [    {
+        "coordinates": [34.149551, -118.141449],
+        "address": "Pasadena Convention Center, 300 E Green St, Pasadena, CA 91101",
+        "event": "UbuCon NA @ SCaLE",
+        "date": "2025-03-07",
+        "url": "https://www.socallinuxexpo.org/scale/22x"
+    },
+
+    {
         "coordinates": [37.574686, 126.979017],
         "address": "Microsoft Korea, 50 Jong-ro 1-gil, Jongno-gu, Seoul",
         "event": "UbuCon Korea 2025",
