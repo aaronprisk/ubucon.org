@@ -5,51 +5,76 @@ var customIcon = L.icon({
     popupAnchor: [0, -32]      // Point from which the popup should open relative to the iconAnchor
 });
 
-
 async function addMarkersAndEventsFromJSON(map) {
     try {
-        // Fetch events.json file
         const response = await fetch('events.json');
         const eventsData = await response.json();
 
-        var eventCoordinates = [];
+        const today = new Date();
+        let upcomingEvents = [];
+        let previousEvents = [];
+        let eventCoordinates = [];
 
-        // Iterate over events
         eventsData.forEach(event => {
-            // Extract data
             const coordinates = event.coordinates;
             const eventName = event.event;
             const address = event.address;
-            const date = event.date;
+            const dateStr = event.date;
             const url = event.url;
 
+            const eventDate = new Date(dateStr);
+
+            // Classify event
+            if (eventDate >= today.setHours(0, 0, 0, 0)) {
+                upcomingEvents.push({ eventName, dateStr, address, url, coordinates });
+            } else {
+                previousEvents.push({ eventName, dateStr, address, url, coordinates });
+            }
+
+            // Add marker to map
             eventCoordinates.push(coordinates);
-
-            // Add marker to the map using custom icon
             L.marker(coordinates, { icon: customIcon }).addTo(map)
-                .bindPopup(`<b>${eventName}</b><br/><a href="${url}" target="_blank">More info</a>`);
-
-            // Add event to the table
-            const eventRow = document.createElement('tr');
-            eventRow.innerHTML = `
-                <td>${eventName}</td>
-                <td>${date}</td>
-                <td>${address}</td>
-                <td><a href="${url}" target="_blank">More info</a></td>
-            `;
-            document.getElementById('eventTable').getElementsByTagName('tbody')[0].appendChild(eventRow);
+            .bindPopup(`<b>${eventName}</b><br/><a href="${url}" target="_blank">More info</a>`);
         });
-        // Calculate bounds and set map view
-        if(eventCoordinates.length > 0) {
-            var bounds = L.latLngBounds(eventCoordinates);
+
+        // Sort events by date
+        const sortByDate = (a, b) => new Date(a.dateStr) - new Date(b.dateStr);
+        upcomingEvents.sort(sortByDate);
+        previousEvents.sort(sortByDate).reverse(); // Most recent past first
+
+        // Render into tables
+        const upcomingTable = document.getElementById('upcomingEvents').getElementsByTagName('tbody')[0];
+        const previousTable = document.getElementById('previousEvents').getElementsByTagName('tbody')[0];
+
+        function populateTable(table, events) {
+            events.forEach(event => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <td>${event.eventName}</td>
+                <td>${event.dateStr}</td>
+                <td>${event.address}</td>
+                <td><a href="${event.url}" target="_blank">More info</a></td>
+                `;
+                table.appendChild(row);
+            });
+        }
+
+        populateTable(upcomingTable, upcomingEvents);
+        populateTable(previousTable, previousEvents);
+
+        // Adjust map view
+        if (eventCoordinates.length > 0) {
+            const bounds = L.latLngBounds(eventCoordinates);
             map.fitBounds(bounds);
         } else {
-            map.setView([0, 0], 2); // Fallback view
+            map.setView([0, 0], 2);
         }
+
     } catch (error) {
         console.error('Error loading events.json:', error);
     }
 }
+
 
 // Only execute these functions once the window has fully loaded
 window.onload = function() {
