@@ -34,7 +34,7 @@ async function addMarkersAndEventsFromJSON(map) {
             // Add marker to map
             eventCoordinates.push(coordinates);
             L.marker(coordinates, { icon: customIcon }).addTo(map)
-            .bindPopup(`<b>${eventName}</b><br/><a href="${url}" target="_blank">More info</a>`);
+            .bindPopup(`<b>${eventName}</b><br/>${address}</b><br/><a href="${url}" target="_blank">More info</a>`);
         });
 
         // Sort events by date
