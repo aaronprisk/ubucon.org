@@ -64,4 +64,11 @@
         "date": "2025-06-20",
         "url": "https://discourse.ubuntu.com/t/ubucon-europe-opensouthcode-2025/57060"
     }
+    {
+        "coordinates": [-3.371710, 36.694771],
+        "address": "Arusha, Tanzania",
+        "event": "UbuCon Africa @ Djangocon 2025",
+        "date": "2025-08-11",
+        "url": "https://2025.djangocon.africa"
+    }
 ]
