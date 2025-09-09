@@ -71,4 +71,11 @@
         "date": "2025-08-11",
         "url": "https://2025.djangocon.africa"
     }
+    {
+        "coordinates": [-3.371710, 36.694771],
+        "address": "Universidad del Azuay",
+        "event": "Ubucon Latinoamérica 2025",
+        "date": "2025-10-16",
+        "url": "https://ubuconla.org/2025"
+    }
 ]
