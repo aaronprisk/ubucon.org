@@ -91,5 +91,12 @@
         "event": "Mini UbuCon Malaysia 2025",
         "date": "2025-10-01",
         "url": "https://2025.ubuntu.my/"
+    },
+        {
+        "coordinates": [25.0132583, 121.5405609],
+        "address": "NTUST, No. 43, Sec. 4, Keelung Rd., Da'an Dist., Taipei City 106335, Taiwan",
+        "event": "UbuCon Asia 2026 @ COSCUP",
+        "date": "2026-08-08",
+        "url": "https://events.canonical.com/event/146/"
     }
 ]
