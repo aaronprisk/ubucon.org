@@ -26,28 +26,35 @@ async function addMarkersAndEventsFromJSON(map) {
       const address = event.address;
       const dateStr = event.date;
       const url = event.url;
-
       const eventDate = new Date(dateStr);
-
-      // Skip anything not in the current year and skip invalid dates
-      if (isNaN(eventDate.getTime()) || eventDate.getFullYear() !== currentYear) {
-        return;
-      }
-
-      // Classify event
+      // Skip bad dates
+      if (isNaN(eventDate.getTime())) return; 
+    
+      // Classify events
       if (eventDate >= startOfToday) {
         upcomingEvents.push({ eventName, dateStr, address, url, coordinates });
       } else {
         previousEvents.push({ eventName, dateStr, address, url, coordinates });
       }
-
-      // Add markers to map
-      eventCoordinates.push(coordinates);
-      L.marker(coordinates, { icon: customIcon })
-        .addTo(map)
-        .bindPopup(
-          `<b>${eventName}</b><br/>${address}<br/><a href="${url}" target="_blank" rel="noopener">More info</a>`
-        );
+    
+      // Add pins on map
+      if (eventDate.getFullYear() === currentYear) {
+        // Check for bad lat long coords
+        if (Array.isArray(coordinates) && coordinates.length === 2) {
+          const lat = Number(coordinates[0]);
+          const lng = Number(coordinates[1]);
+          if (
+            Number.isFinite(lat) && Number.isFinite(lng) &&
+            lat >= -90 && lat <= 90 && lng >= -180 && lng <= 180
+          ) {
+            L.marker([lat, lng], { icon: customIcon })
+              .addTo(map)
+              .bindPopup(
+                `<b>${eventName}</b><br/>${address}<br/><a href="${url}" target="_blank" rel="noopener">More info</a>`
+              );
+          }
+        }
+      }
     });
 
     // Sort events by date
