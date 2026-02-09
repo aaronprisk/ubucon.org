@@ -84,13 +84,8 @@ async function addMarkersAndEventsFromJSON(map) {
     populateTable(upcomingTable, upcomingEvents);
     populateTable(previousTable, previousEvents);
 
-    // Adjust map view
-    if (eventCoordinates.length > 0) {
-      const bounds = L.latLngBounds(eventCoordinates);
-      map.fitBounds(bounds);
-    } else {
-      map.setView([0, 0], 2);
-    }
+    // Adjust map to global view
+    map.setView([0, 0], 2);
 
   } catch (error) {
     console.error('Error loading events.json:', error);
