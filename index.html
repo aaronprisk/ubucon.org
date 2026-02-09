@@ -99,19 +99,24 @@
                         </tbody>
                     </table>
                     <h2>Previous Events</h2>
-                    <table id="previousEvents">
-                        <thead>
-                            <tr>
-                                <th>Event Name</th>
-                                <th>Date</th>
-                                <th>Location</th>
-                                <th>Website</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Events will be added here dynamically -->
-                        </tbody>
-                    </table>
+                    <details id="previousEventsWrap">
+                        <summary>Show / hide previous events</summary>
+                        <div class="table-scroll">
+                            <table id="previousEvents">
+                                <thead>
+                                    <tr>
+                                        <th>Event Name</th>
+                                        <th>Date</th>
+                                        <th>Location</th>
+                                        <th>Website</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Events will be added here dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
                     <h3>Add your UbuCon</h3>
                     <div class="p-notification">
                         <p class="p-notification__content">
