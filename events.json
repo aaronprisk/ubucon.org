@@ -93,6 +93,13 @@
         "url": "https://2025.ubuntu.my/"
     },
     {
+        "coordinates": [25.0132583, 121.5405609],
+        "address": "NTUST, No. 43, Sec. 4, Keelung Rd., Da'an Dist., Taipei City 106335, Taiwan",
+        "event": "UbuCon Asia 2026 @ COSCUP",
+        "date": "2026-08-08",
+        "url": "https://events.canonical.com/event/146/"
+    },
+    {
         "coordinates": [1.2146805,36.8790208],
         "address": "Exit 7, USIU Road, Off Thika Rd, Kenya",
         "event": "UbuCon Kenya 2026",
