@@ -105,5 +105,12 @@
         "event": "UbuCon Kenya 2026",
         "date": "2026-3-27",
         "url": "https://events.canonical.com/event/147/"
+    },
+    {
+        "coordinates": [3.848032, 11.502075],
+        "address": "Yaoundé, Cameroon",
+        "event": "UbuCon Cameroon 2026 @ PyCon Cameroon",
+        "date": "2026-09-17",
+        "url": "https://cm.pycon.org/ubucon"
     }
 ]
