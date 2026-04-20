@@ -112,5 +112,12 @@
         "event": "UbuCon Cameroon 2026 @ PyCon Cameroon",
         "date": "2026-09-17",
         "url": "https://cm.pycon.org/ubucon"
+    },
+    {
+        "coordinates": [37.574686, 126.979017],
+        "address": "Microsoft Korea, 50 Jong-ro 1-gil, Jongno-gu, Seoul",
+        "event": "UbuCon Korea 2026",
+        "date": "2026-08-29",
+        "url": "https://2026.ubuntu-kr.org/"
     }
 ]
