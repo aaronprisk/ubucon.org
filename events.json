@@ -119,5 +119,12 @@
         "event": "UbuCon Korea 2026",
         "date": "2026-08-29",
         "url": "https://2026.ubuntu-kr.org/"
+    },
+    {
+        "coordinates": [36.690049, -4.445148],
+        "address": "La Térmica, Av. de los Guindos, 48, Carretera de Cádiz, 29004 Málaga, Spain",
+        "event": "UbuCon @ OpenSouthCode 2026",
+        "date": "2026-06-26",
+        "url": "https://www.opensouthcode.org/conferences/opensouthcode2026"
     }
 ]
