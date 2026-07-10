@@ -506,7 +506,7 @@ footer .is-dark:visited,
 .l-footer .is-dark,
 .l-footer .is-dark:link,
 .l-footer .is-dark:visited {
-  color: #0066cc !important;
+  color: #7D42B8 !important;
   text-decoration: underline !important;
 }
 
@@ -522,7 +522,7 @@ footer .is-dark:visited:hover,
 .l-footer .is-dark:hover,
 .l-footer .is-dark:link:hover,
 .l-footer .is-dark:visited:hover {
-  color: #0044aa !important;
+  color: #7D42B8 !important;
   text-decoration: underline !important;
 }
 
