@@ -526,3 +526,19 @@ footer .is-dark:visited:hover,
   text-decoration: underline !important;
 }
 
+/* 17. Previous Events Table Fade-in Slide Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.45s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
