@@ -1,0 +1,544 @@
+/* Ubuntu Branding Guidelines - CSS style sheets override */
+
+/* Custom Variables */
+:root {
+  --color-brand: #e95420;       /* Ubuntu Orange */
+  --color-accent: #000;      /* Canonical Aubergine */
+  --color-accent-dark: #000; /* Dark Aubergine */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f7f7;
+  --color-text: #111111;
+  --color-text-muted: #666666;
+  --color-border: #e6e6e6;
+  --color-border-accent: rgba(119, 41, 83, 0.15);
+}
+
+
+/* 2. Open Hero Section (radial gradients with vh/vw spacing) */
+.p-strip--open-hero {
+  position: relative;
+  background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(233, 84, 32, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 15% 90%, rgba(119, 41, 83, 0.06) 0%, transparent 45%);
+  padding: 8vh 2vw !important;
+  border-bottom: 1px solid rgba(119, 41, 83, 0.06);
+  text-align: left;
+}
+
+.p-strip--open-hero h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: var(--color-accent) !important;
+  letter-spacing: -1px !important;
+  margin-bottom: 3vh !important;
+}
+
+.p-strip--open-hero p {
+  font-size: clamp(1rem, 2vw, 1.2rem) !important;
+  line-height: 1.6 !important;
+  color: #333333 !important;
+  margin-bottom: 4vh !important;
+  max-width: 800px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 3. Grid Glow Container (using vw/vh sizing for glowing spots) */
+.bg-grid-glow {
+  position: relative;
+  background-color: var(--color-bg);
+  background-image: 
+    linear-gradient(to right, rgba(119, 41, 83, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(119, 41, 83, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  padding: 6vh 0;
+}
+
+.bg-grid-glow::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, rgba(233, 84, 32, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-grid-glow::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  right: 5%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(119, 41, 83, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-grid-glow .u-fixed-width,
+.bg-grid-glow .row,
+.bg-grid-glow .col-12 {
+  position: relative;
+  z-index: 1;
+}
+
+/* 4. Leaflet Map component: takes full width centered natively */
+#map {
+  height: 70vh !important;
+  width: 1280px !important;
+  max-width: 100% !important;
+  margin: 0 auto 4vh auto !important;
+  border-radius: 0px;
+  border: 2px solid var(--color-border-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* 5. Responsive Event Tables - Expanded to Full Width, Centered Cells */
+.p-table-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 4vh 0 !important;
+  box-sizing: border-box !important;
+  text-align: center;
+}
+
+table {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 3vh;
+}
+
+table th {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  background-color: #ffffff !important;
+  box-shadow: inset 0 -2px 0 rgba(119, 41, 83, 0.1) !important;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 2vh 2vw;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center !important;
+}
+
+table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+table td {
+  padding: 2.2vh 2vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: #222222;
+  vertical-align: middle;
+  text-align: center !important;
+  transition: background-color 0.2s ease;
+}
+
+table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+table tbody tr:hover td {
+  background-color: rgba(233, 84, 32, 0.02) !important;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-scroll {
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: 50vh;
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.02);
+  background: #ffffff;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.table-scroll::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
+/* 6. Dynamic Links formatted as brand button badges */
+.event-more-info-link {
+  color: #7D42B8 !important;
+  text-decoration: underline !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease !important;
+}
+
+.event-more-info-link:hover {
+  color: #5B2F89 !important;
+  text-decoration: underline !important;
+}
+
+/* 7. Formal Box CTA (replaces Ticket Mockup) */
+.ticket-mockup {
+  position: relative;
+  background-color: var(--color-bg) !important;
+  border: none !important;
+  border-radius: 0px !important;
+  padding: 5vh 4vw !important;
+  margin: 6vh auto !important;
+  max-width: 800px;
+  width: 90% !important;
+  box-shadow: 0 12px 40px rgba(119, 41, 83, 0.08) !important;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ticket-mockup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 48px rgba(119, 41, 83, 0.12) !important;
+}
+
+.ticket-mockup h3 {
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-bottom: 2vh;
+}
+
+.ticket-mockup p {
+  font-size: 1.1rem;
+  color: #333333;
+  margin: 0;
+}
+
+/* Remove ticket cutout visual overlays */
+.ticket-mockup::before,
+.ticket-mockup::after {
+  display: none !important;
+}
+
+/* 8. Buttons */
+.p-button--brand, .btn-primary {
+  background-color: #0E8420 !important;
+  border: 1px solid #0E8420 !important;
+  color: #ffffff !important;
+  border-radius: 0px;
+  font-weight: 500;
+  padding: 1.2vh 2.5vw;
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.p-button--brand:hover, .btn-primary:hover {
+  box-shadow: 0 4px 12px rgba(14, 132, 32, 0.25);
+  background-color: #0A5F17 !important;
+  border-color: #0A5F17 !important;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background-color: transparent !important;
+  border: 1px solid #000000 !important;
+  color: #000000 !important;
+  border-radius: 0px;
+  font-weight: 500;
+  padding: 1.2vh 2.5vw;
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #F2F2F2 !important;
+  text-decoration: none;
+}
+
+/* 9. Centered speaker cards in scale pages (responsive hover) */
+.scale-page-card {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+}
+
+.scale-page-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(119, 41, 83, 0.05);
+}
+
+/* 10. Footer Styling overrides with flex centering */
+footer {
+  text-align: center !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: block !important;
+  width: 100% !important;
+}
+
+footer.l-docs__subgrid {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+footer .l-docs__sidebar {
+  display: none !important;
+}
+
+footer .l-docs__main {
+  width: 100% !important;
+  margin: 0 auto !important;
+  float: none !important;
+  padding: 0 !important;
+  display: block !important;
+  text-align: center !important;
+}
+
+footer nav.row {
+  width: 100% !important;
+  display: block !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+footer .has-cookie {
+  margin: 0 auto !important;
+  text-align: center !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto 1.5vh auto !important;
+}
+
+footer a.is-dark {
+  color: #ffffff !important;
+  font-weight: 500;
+  display: inline-block !important;
+}
+
+footer a.is-dark:hover {
+  text-decoration: underline;
+}
+
+footer ul.p-inline-list--middot {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  padding: 0 !important;
+  list-style: none !important;
+  margin-top: 2vh !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+footer .p-inline-list__item {
+  display: inline-block !important;
+  float: none !important;
+  margin: 0 10px !important;
+}
+
+footer .p-inline-list__item a {
+  color: rgba(255, 255, 255, 0.5) !important;
+  display: inline-block !important;
+}
+
+footer .p-inline-list__item a:hover {
+  color: #ffffff !important;
+}
+
+/* 11. Pre-footer Call-To-Action (CTA) Centering Override */
+.p-strip.u-align--center {
+  text-align: center !important;
+  background-color: var(--color-bg-alt) !important;
+  border-top: 1px solid rgba(119, 41, 83, 0.06) !important;
+  border-bottom: 1px solid rgba(119, 41, 83, 0.06) !important;
+  padding: 6vh 2vw !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.p-strip.u-align--center .u-fixed-width {
+  text-align: center !important;
+  margin: 0 auto !important;
+  max-width: 100% !important;
+}
+
+.p-strip.u-align--center .p-heading--2 {
+  text-align: center !important;
+  margin: 0 auto 2vh auto !important;
+  display: block !important;
+  color: var(--color-accent) !important;
+  font-weight: 700 !important;
+}
+
+.p-strip.u-align--center a.p-button--brand {
+  display: inline-block !important;
+  float: none !important;
+}
+
+/* 12. Global Section Alignment and Headings Bolding Override */
+section h1, section h2, section h3, section h4, section h5, section h6,
+.p-section h1, .p-section h2, .p-section h3, .p-section h4, .p-section h5, .p-section h6,
+.p-strip h1, .p-strip h2, .p-strip h3, .p-strip h4, .p-strip h5, .p-strip h6 {
+  font-weight: 700 !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+section, .p-section, .p-strip {
+  text-align: center !important;
+}
+
+/* 13. Map Section Spacing Refinement (Decrease spacing between title and map) */
+.l-docs__title.bg-grid-glow {
+  padding-bottom: 0 !important;
+}
+
+.l-docs__main.bg-grid-glow {
+  padding-top: 0 !important;
+}
+
+#section-map.p-section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-bottom: 2vh !important;
+}
+
+#map {
+  margin-top: 0 !important;
+}
+
+/* 14. Mobile Navigation Toggle Icon Styling */
+.p-navigation__toggle--open,
+.p-navigation__toggle--close {
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  text-align: center !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+
+.p-navigation__toggle--open:hover,
+.p-navigation__toggle--close:hover {
+  color: var(--color-brand) !important;
+}
+
+/* 15. Hero Logo Styling & Visual Layout */
+.p-strip--open-hero img.hero-logo {
+  display: none !important;
+  width: 100% !important;
+  max-width: 320px !important;
+  height: auto !important;
+}
+
+@media (min-width: 620px) {
+  .p-strip--open-hero .row {
+    display: flex !important;
+    align-items: center !important;
+  }
+  .p-strip--open-hero img.hero-logo {
+    display: block !important;
+    margin: 0 0 0 auto !important; /* Align to the right edge of the left column */
+  }
+  .p-strip--open-hero .col-6:first-child {
+    padding-right: 4vw !important; /* Gutter gap */
+  }
+  .p-strip--open-hero .col-6:last-child {
+    padding-left: 4vw !important;  /* Gutter gap */
+  }
+}
+
+/* Specificity overrides to enforce left alignment throughout the hero strip */
+.p-strip--open-hero,
+.p-strip--open-hero h2,
+.p-strip--open-hero p,
+.p-strip--open-hero div {
+  text-align: left !important;
+}
+
+.p-strip--open-hero p {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* 16. Footer Links Custom Coloration (Standard Link Blue) */
+footer a,
+footer a:link,
+footer a:visited,
+.l-footer a,
+.l-footer a:link,
+.l-footer a:visited,
+footer .is-dark,
+footer .is-dark:link,
+footer .is-dark:visited,
+.l-footer .is-dark,
+.l-footer .is-dark:link,
+.l-footer .is-dark:visited {
+  color: #7D42B8 !important;
+  text-decoration: underline !important;
+}
+
+footer a:hover,
+footer a:link:hover,
+footer a:visited:hover,
+.l-footer a:hover,
+.l-footer a:link:hover,
+.l-footer a:visited:hover,
+footer .is-dark:hover,
+footer .is-dark:link:hover,
+footer .is-dark:visited:hover,
+.l-footer .is-dark:hover,
+.l-footer .is-dark:link:hover,
+.l-footer .is-dark:visited:hover {
+  color: #7D42B8 !important;
+  text-decoration: underline !important;
+}
+
+/* 17. Previous Events Table Fade-in Slide Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.45s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
