@@ -81,7 +81,7 @@ async function addMarkersAndEventsFromJSON(map) {
           <td>${event.eventName}</td>
           <td>${event.dateStr}</td>
           <td>${event.address}</td>
-          <td><a href="${event.url}" target="_blank" rel="noopener" class="p-button--brand p-button--small btn-more-info">More info</a></td>
+          <td><a href="${event.url}" target="_blank" rel="noopener" class="event-more-info-link">More info</a></td>
         `;
         table.appendChild(row);
       });
@@ -112,5 +112,20 @@ window.onload = function () {
   } else {
     // Call function without map
     addMarkersAndEventsFromJSON(null);
+  }
+
+  // Toggle previous events table visibility
+  const btnTogglePrevious = document.getElementById('btn-toggle-previous');
+  const wrapperPrevious = document.getElementById('wrapper-previous-events');
+  if (btnTogglePrevious && wrapperPrevious) {
+    btnTogglePrevious.onclick = function () {
+      if (wrapperPrevious.style.display === 'none') {
+        wrapperPrevious.style.display = 'block';
+        btnTogglePrevious.textContent = 'Hide Previous Events';
+      } else {
+        wrapperPrevious.style.display = 'none';
+        btnTogglePrevious.textContent = 'Show Previous Events';
+      }
+    };
   }
 };

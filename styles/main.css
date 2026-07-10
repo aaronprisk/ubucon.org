@@ -123,12 +123,15 @@ table {
 }
 
 table th {
-  background-color: rgba(119, 41, 83, 0.03);
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10 !important;
+  background-color: #ffffff !important;
+  box-shadow: inset 0 -2px 0 rgba(119, 41, 83, 0.1) !important;
   color: var(--color-accent);
   font-weight: 700;
   font-size: 0.95rem;
   padding: 2vh 2vw;
-  border-bottom: 2px solid rgba(119, 41, 83, 0.1);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   text-align: center !important;
@@ -182,24 +185,16 @@ table tbody tr:last-child td {
 }
 
 /* 6. Dynamic Links formatted as brand button badges */
-.btn-more-info {
-  display: inline-block;
-  padding: 0.8vh 2.5vw !important;
-  font-size: 0.85rem !important;
+.event-more-info-link {
+  color: #7D42B8 !important;
+  text-decoration: underline !important;
   font-weight: 500 !important;
-  text-decoration: none !important;
-  border: 1px solid var(--color-brand) !important;
-  border-radius: 4px !important;
-  color: var(--color-brand) !important;
-  background-color: transparent !important;
-  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  transition: color 0.2s ease !important;
 }
 
-.btn-more-info:hover {
-  background-color: var(--color-brand) !important;
-  color: var(--color-bg) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(233, 84, 32, 0.2);
+.event-more-info-link:hover {
+  color: #5B2F89 !important;
+  text-decoration: underline !important;
 }
 
 /* 7. Formal Box CTA (replaces Ticket Mockup) */
@@ -256,7 +251,6 @@ table tbody tr:last-child td {
 }
 
 .p-button--brand:hover, .btn-primary:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(14, 132, 32, 0.25);
   background-color: #0A5F17 !important;
   border-color: #0A5F17 !important;
@@ -276,7 +270,6 @@ table tbody tr:last-child td {
 }
 
 .btn-secondary:hover {
-  transform: translateY(-2px);
   background-color: #F2F2F2 !important;
   text-decoration: none;
 }
@@ -479,3 +472,4 @@ section, .p-section, .p-strip {
 .p-strip--open-hero img.hero-logo:hover {
   transform: scale(1.05);
 }
+
