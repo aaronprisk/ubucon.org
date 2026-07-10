@@ -242,7 +242,7 @@ table tbody tr:last-child td {
   background-color: #0E8420 !important;
   border: 1px solid #0E8420 !important;
   color: #ffffff !important;
-  border-radius: 4px;
+  border-radius: 0px;
   font-weight: 500;
   padding: 1.2vh 2.5vw;
   display: inline-block;
@@ -261,7 +261,7 @@ table tbody tr:last-child td {
   background-color: transparent !important;
   border: 1px solid #000000 !important;
   color: #000000 !important;
-  border-radius: 4px;
+  border-radius: 0px;
   font-weight: 500;
   padding: 1.2vh 2.5vw;
   display: inline-block;
