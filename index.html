@@ -34,8 +34,8 @@
                                         <span class="p-navigation__logo-title">UbuCon</span>
                                     </a>
                                 </div>
-                                <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
-                                <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+                                <a href="#navigation" class="p-navigation__toggle--open" title="menu">☰</a>
+                                <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">✕</a>
                             </div>
                         </div>
                         <div class="l-docs__main">
@@ -54,6 +54,7 @@
                 <section class="p-strip--open-hero">
                     <div class="row">
                         <div class="col-12">
+                            <img src="img/community.png" alt="UbuCon community logo" class="hero-logo" />
                             <h2>UbuCons bring the global Ubuntu community together!</h2>
                             <p>
                                 An <a href="https://ubuntu.com/about">Ubuntu</a>
@@ -72,22 +73,25 @@
                 </section>
             </div>
             
-            <div class="bg-grid-glow">
-                <div class="l-docs__title" id="main-content">
-                    <div class="p-section--shallow">
-                        <div class="row">
-                            <div class="col-12">
-                                <h2>Find an UbuCon in your area</h2>
-                            </div>
+            <section class="l-docs__title bg-grid-glow" id="main-content">
+                <div class="p-section--shallow">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 style="text-transform: capitalize;">Find an UbuCon in your area</h2>
                         </div>
                     </div>
                 </div>
-                <main class="l-docs__main">
-                    <div class="row">
-                        <div class="col-12">
+            </section>
+            <main class="l-docs__main bg-grid-glow">
+                <div class="row">
+                    <div class="col-12">
+                        
+                        <section id="section-map" class="p-section">
                             <div id="map" style="height: 70vh; width: 100%;"></div>
-                            
-                            <!-- Dynamic Event lists - expanded to take full screen width -->
+                        </section>
+                        
+                        <!-- Dynamic Event lists - expanded to take full screen width -->
+                        <section id="section-upcoming" class="p-section">
                             <div class="p-table-container">
                                 <h2>Upcoming Events</h2>
                                 <div class="table-scroll">
@@ -106,52 +110,53 @@
                                     </table>
                                 </div>
                             </div>
-                            
+                        </section>
+                        
+                        <section id="section-previous" class="p-section">
                             <div class="p-table-container">
                                 <h2>Previous Events</h2>
-                                <details id="previousEventsWrap">
-                                    <summary>Show / hide previous events</summary>
-                                    <div class="table-scroll u-margin-top">
-                                        <table id="previousEvents" class="p-table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Event Name</th>
-                                                    <th>Date</th>
-                                                    <th>Location</th>
-                                                    <th>Website</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <!-- Events will be added here dynamically -->
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </details>
+                                <div class="table-scroll">
+                                    <table id="previousEvents" class="p-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Event Name</th>
+                                                <th>Date</th>
+                                                <th>Location</th>
+                                                <th>Website</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Events will be added here dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            
-                            <!-- Submission guide formatted in a ticket cutout visual frame -->
+                        </section>
+                        
+                        <!-- Submission guide formatted in a ticket cutout visual frame -->
+                        <section id="section-submit" class="p-section">
                             <div class="ticket-mockup">
                                 <h3>Add your UbuCon</h3>
                                 <p>
                                     Do you need your UbuCon event listed? Check out the quick guide on our <a href="https://github.com/aaronprisk/ubucon.org">GitHub</a>.
                                 </p>
                             </div>
-                            
-                            <hr class="p-rule is-fixed-width">
-                            
-                            <section class="p-strip">
-                                <div class="u-fixed-width">
-                                    <p class="p-heading--2">
-                                        Looking for more events?
-                                        <br>
-                                        <a href="https://ubuntu.com/community/events" class="p-button--brand">Discover other Ubuntu events around the world</a>
-                                    </p>
+                        </section>
+                        
+                        <hr class="p-rule is-fixed-width">
+                        
+                        <section id="section-cta" class="p-strip u-align--center">
+                            <div class="u-fixed-width">
+                                <h2 class="p-heading--2">Looking for more events?</h2>
+                                <div class="u-margin-top--large">
+                                    <a href="https://ubuntu.com/community/events" class="p-button--brand">Discover other Ubuntu events around the world</a>
                                 </div>
-                            </section>
-                        </div>
+                            </div>
+                        </section>
+                        
                     </div>
-                </main>
-            </div>
+                </div>
+            </main>
         </div>
         <div class="l-docs__footer">
             <footer class="p-strip--dark l-docs__subgrid">

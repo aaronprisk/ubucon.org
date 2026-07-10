@@ -13,58 +13,6 @@
   --color-border-accent: rgba(119, 41, 83, 0.15);
 }
 
-/* 1. Centering & Sliding animation for Navigation Header */
-.p-navigation {
-  background-color: var(--color-accent-dark) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.p-navigation .p-navigation__logo-title {
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.p-navigation .p-navigation__link {
-  position: relative;
-  text-decoration: none;
-  transition: color 0.25s ease;
-  padding: 0.75rem 1rem !important;
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.75) !important;
-}
-
-.p-navigation .p-navigation__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 10px;
-  right: 10px;
-  height: 2px;
-  background-color: var(--color-brand);
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
-.p-navigation .p-navigation__link:hover {
-  color: #ffffff !important;
-}
-
-.p-navigation .p-navigation__link:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-.p-navigation .p-navigation__item.is-selected .p-navigation__link {
-  color: #ffffff !important;
-  font-weight: 700;
-}
-
-.p-navigation .p-navigation__item.is-selected .p-navigation__link::after {
-  transform: scaleX(1);
-  background-color: var(--color-brand);
-}
 
 /* 2. Open Hero Section (radial gradients with vh/vw spacing) */
 .p-strip--open-hero {
@@ -225,31 +173,12 @@ table tbody tr:last-child td {
   border-radius: 8px;
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.02);
   background: #ffffff;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
 }
 
-#previousEventsWrap {
-  margin-top: 2vh;
-  margin-bottom: 3vh;
-  width: 100% !important;
-}
-
-#previousEventsWrap summary {
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--color-accent);
-  padding: 1.2vh 2.5vw;
-  background-color: rgba(119, 41, 83, 0.04);
-  border-radius: 6px;
-  display: inline-block;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  border: 1px solid rgba(119, 41, 83, 0.08);
-  outline: none;
-  margin: 0 auto;
-}
-
-#previousEventsWrap summary:hover {
-  background-color: rgba(119, 41, 83, 0.08);
-  transform: translateY(-1px);
+.table-scroll::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
 }
 
 /* 6. Dynamic Links formatted as brand button badges */
@@ -378,37 +307,56 @@ table tbody tr:last-child td {
 footer {
   text-align: center !important;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: block !important;
+  width: 100% !important;
+}
+
+footer.l-docs__subgrid {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+footer .l-docs__sidebar {
+  display: none !important;
 }
 
 footer .l-docs__main {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
   width: 100% !important;
+  margin: 0 auto !important;
+  float: none !important;
+  padding: 0 !important;
+  display: block !important;
+  text-align: center !important;
 }
 
 footer nav.row {
   width: 100% !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
+  display: block !important;
   text-align: center !important;
+  margin: 0 auto !important;
 }
 
 footer .has-cookie {
   margin: 0 auto !important;
   text-align: center !important;
   width: 100% !important;
+  display: block !important;
 }
 
 footer p {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto 1.5vh auto !important;
 }
 
 footer a.is-dark {
   color: #ffffff !important;
   font-weight: 500;
+  display: inline-block !important;
 }
 
 footer a.is-dark:hover {
@@ -418,17 +366,122 @@ footer a.is-dark:hover {
 footer ul.p-inline-list--middot {
   display: flex !important;
   justify-content: center !important;
+  align-items: center !important;
   flex-wrap: wrap !important;
   padding: 0 !important;
   list-style: none !important;
   margin-top: 2vh !important;
   width: 100% !important;
+  text-align: center !important;
+}
+
+footer .p-inline-list__item {
+  display: inline-block !important;
+  float: none !important;
+  margin: 0 10px !important;
 }
 
 footer .p-inline-list__item a {
   color: rgba(255, 255, 255, 0.5) !important;
+  display: inline-block !important;
 }
 
 footer .p-inline-list__item a:hover {
   color: #ffffff !important;
+}
+
+/* 11. Pre-footer Call-To-Action (CTA) Centering Override */
+.p-strip.u-align--center {
+  text-align: center !important;
+  background-color: var(--color-bg-alt) !important;
+  border-top: 1px solid rgba(119, 41, 83, 0.06) !important;
+  border-bottom: 1px solid rgba(119, 41, 83, 0.06) !important;
+  padding: 6vh 2vw !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.p-strip.u-align--center .u-fixed-width {
+  text-align: center !important;
+  margin: 0 auto !important;
+  max-width: 100% !important;
+}
+
+.p-strip.u-align--center .p-heading--2 {
+  text-align: center !important;
+  margin: 0 auto 2vh auto !important;
+  display: block !important;
+  color: var(--color-accent) !important;
+  font-weight: 700 !important;
+}
+
+.p-strip.u-align--center a.p-button--brand {
+  display: inline-block !important;
+  float: none !important;
+}
+
+/* 12. Global Section Alignment and Headings Bolding Override */
+section h1, section h2, section h3, section h4, section h5, section h6,
+.p-section h1, .p-section h2, .p-section h3, .p-section h4, .p-section h5, .p-section h6,
+.p-strip h1, .p-strip h2, .p-strip h3, .p-strip h4, .p-strip h5, .p-strip h6 {
+  font-weight: 700 !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+section, .p-section, .p-strip {
+  text-align: center !important;
+}
+
+/* 13. Map Section Spacing Refinement (Decrease spacing between title and map) */
+.l-docs__title.bg-grid-glow {
+  padding-bottom: 0 !important;
+}
+
+.l-docs__main.bg-grid-glow {
+  padding-top: 0 !important;
+}
+
+#section-map.p-section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-bottom: 2vh !important;
+}
+
+#map {
+  margin-top: 0 !important;
+}
+
+/* 14. Mobile Navigation Toggle Icon Styling */
+.p-navigation__toggle--open,
+.p-navigation__toggle--close {
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  text-align: center !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+
+.p-navigation__toggle--open:hover,
+.p-navigation__toggle--close:hover {
+  color: var(--color-brand) !important;
+}
+
+/* 15. Hero Logo Styling & Micro-animations */
+.p-strip--open-hero img.hero-logo {
+  max-height: 180px !important;
+  display: block !important;
+  margin: 0 auto 4vh auto !important;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.p-strip--open-hero img.hero-logo:hover {
+  transform: scale(1.05);
 }
