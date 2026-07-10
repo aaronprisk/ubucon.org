@@ -7,7 +7,11 @@ var customIcon = L.icon({
 
 async function addMarkersAndEventsFromJSON(map) {
   try {
-    const response = await fetch('events.json');
+    // Determine path based on page location to handle sub-pages properly
+    const isSubPage = window.location.pathname.includes('/india/') || window.location.pathname.includes('/scale/');
+    const jsonPath = isSubPage ? '../events.json' : 'events.json';
+
+    const response = await fetch(jsonPath);
     const eventsData = await response.json();
 
     const now = new Date();
@@ -18,7 +22,6 @@ async function addMarkersAndEventsFromJSON(map) {
 
     let upcomingEvents = [];
     let previousEvents = [];
-    let eventCoordinates = [];
 
     eventsData.forEach(event => {
       const coordinates = event.coordinates;
@@ -37,8 +40,8 @@ async function addMarkersAndEventsFromJSON(map) {
         previousEvents.push({ eventName, dateStr, address, url, coordinates });
       }
     
-      // Add pins on map
-      if (eventDate.getFullYear() === currentYear) {
+      // Add pins on map (only if map is initialized)
+      if (map && eventDate.getFullYear() === currentYear) {
         // Check for bad lat long coords
         if (Array.isArray(coordinates) && coordinates.length === 2) {
           const lat = Number(coordinates[0]);
@@ -62,11 +65,14 @@ async function addMarkersAndEventsFromJSON(map) {
     upcomingEvents.sort(sortByDate);
     previousEvents.sort(sortByDate).reverse();
 
-    // Render into tables
-    const upcomingTable = document.getElementById('upcomingEvents').getElementsByTagName('tbody')[0];
-    const previousTable = document.getElementById('previousEvents').getElementsByTagName('tbody')[0];
-    upcomingTable.innerHTML = "";
-    previousTable.innerHTML = "";
+    // Render into tables (only if table elements exist)
+    const upcomingTableEl = document.getElementById('upcomingEvents');
+    const previousTableEl = document.getElementById('previousEvents');
+    const upcomingTable = upcomingTableEl ? upcomingTableEl.getElementsByTagName('tbody')[0] : null;
+    const previousTable = previousTableEl ? previousTableEl.getElementsByTagName('tbody')[0] : null;
+
+    if (upcomingTable) upcomingTable.innerHTML = "";
+    if (previousTable) previousTable.innerHTML = "";
 
     function populateTable(table, events) {
       events.forEach(event => {
@@ -75,17 +81,17 @@ async function addMarkersAndEventsFromJSON(map) {
           <td>${event.eventName}</td>
           <td>${event.dateStr}</td>
           <td>${event.address}</td>
-          <td><a href="${event.url}" target="_blank" rel="noopener">More info</a></td>
+          <td><a href="${event.url}" target="_blank" rel="noopener" class="p-button--brand p-button--small btn-more-info">More info</a></td>
         `;
         table.appendChild(row);
       });
     }
 
-    populateTable(upcomingTable, upcomingEvents);
-    populateTable(previousTable, previousEvents);
+    if (upcomingTable) populateTable(upcomingTable, upcomingEvents);
+    if (previousTable) populateTable(previousTable, previousEvents);
 
-    // Adjust map to global view
-    map.setView([0, 0], 2);
+    // Adjust map to global view (only if map is initialized)
+    if (map) map.setView([0, 0], 2);
 
   } catch (error) {
     console.error('Error loading events.json:', error);
@@ -93,12 +99,18 @@ async function addMarkersAndEventsFromJSON(map) {
 }
 
 window.onload = function () {
-  // Initialize Leaflet map
-  var map = L.map('map').setView([0, 0], 2);
-  // Add OpenStreet Maps base layer
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-  // Call function to add markers and events from events.json, passing in the map
-  addMarkersAndEventsFromJSON(map);
+  const mapElement = document.getElementById('map');
+  if (mapElement && typeof L !== 'undefined') {
+    // Initialize Leaflet map
+    var map = L.map('map').setView([0, 0], 2);
+    // Add OpenStreet Maps base layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    // Call function to add markers and events from events.json, passing in the map
+    addMarkersAndEventsFromJSON(map);
+  } else {
+    // Call function without map
+    addMarkersAndEventsFromJSON(null);
+  }
 };

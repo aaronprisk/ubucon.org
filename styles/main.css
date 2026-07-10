@@ -1,0 +1,434 @@
+/* Ubuntu Branding Guidelines - CSS style sheets override */
+
+/* Custom Variables */
+:root {
+  --color-brand: #e95420;       /* Ubuntu Orange */
+  --color-accent: #772953;      /* Canonical Aubergine */
+  --color-accent-dark: #2c001e; /* Dark Aubergine */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f7f7;
+  --color-text: #111111;
+  --color-text-muted: #666666;
+  --color-border: #e6e6e6;
+  --color-border-accent: rgba(119, 41, 83, 0.15);
+}
+
+/* 1. Centering & Sliding animation for Navigation Header */
+.p-navigation {
+  background-color: var(--color-accent-dark) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.p-navigation .p-navigation__logo-title {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.p-navigation .p-navigation__link {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  padding: 0.75rem 1rem !important;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.p-navigation .p-navigation__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background-color: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.p-navigation .p-navigation__link:hover {
+  color: #ffffff !important;
+}
+
+.p-navigation .p-navigation__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.p-navigation .p-navigation__item.is-selected .p-navigation__link {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.p-navigation .p-navigation__item.is-selected .p-navigation__link::after {
+  transform: scaleX(1);
+  background-color: var(--color-brand);
+}
+
+/* 2. Open Hero Section (radial gradients with vh/vw spacing) */
+.p-strip--open-hero {
+  position: relative;
+  background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(233, 84, 32, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 15% 90%, rgba(119, 41, 83, 0.06) 0%, transparent 45%);
+  padding: 8vh 2vw !important;
+  border-bottom: 1px solid rgba(119, 41, 83, 0.06);
+  text-align: center;
+}
+
+.p-strip--open-hero h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: var(--color-accent) !important;
+  letter-spacing: -1px !important;
+  margin-bottom: 3vh !important;
+}
+
+.p-strip--open-hero p {
+  font-size: clamp(1rem, 2vw, 1.2rem) !important;
+  line-height: 1.6 !important;
+  color: #333333 !important;
+  margin-bottom: 4vh !important;
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 3. Grid Glow Container (using vw/vh sizing for glowing spots) */
+.bg-grid-glow {
+  position: relative;
+  background-color: var(--color-bg);
+  background-image: 
+    linear-gradient(to right, rgba(119, 41, 83, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(119, 41, 83, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  padding: 6vh 0;
+}
+
+.bg-grid-glow::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, rgba(233, 84, 32, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-grid-glow::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  right: 5%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(119, 41, 83, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-grid-glow .u-fixed-width,
+.bg-grid-glow .row,
+.bg-grid-glow .col-12 {
+  position: relative;
+  z-index: 1;
+}
+
+/* 4. Leaflet Map component: takes full width centered natively */
+#map {
+  height: 70vh !important;
+  width: 1280px !important;
+  max-width: 100% !important;
+  margin: 0 auto 4vh auto !important;
+  border-radius: 12px;
+  border: 2px solid var(--color-border-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* 5. Responsive Event Tables - Expanded to Full Width, Centered Cells */
+.p-table-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 4vh 0 !important;
+  box-sizing: border-box !important;
+  text-align: center;
+}
+
+table {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 3vh;
+}
+
+table th {
+  background-color: rgba(119, 41, 83, 0.03);
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 2vh 2vw;
+  border-bottom: 2px solid rgba(119, 41, 83, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center !important;
+}
+
+table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+table td {
+  padding: 2.2vh 2vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: #222222;
+  vertical-align: middle;
+  text-align: center !important;
+  transition: background-color 0.2s ease;
+}
+
+table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+table tbody tr:hover td {
+  background-color: rgba(233, 84, 32, 0.02) !important;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-scroll {
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: 50vh;
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.02);
+  background: #ffffff;
+}
+
+#previousEventsWrap {
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+  width: 100% !important;
+}
+
+#previousEventsWrap summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-accent);
+  padding: 1.2vh 2.5vw;
+  background-color: rgba(119, 41, 83, 0.04);
+  border-radius: 6px;
+  display: inline-block;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  border: 1px solid rgba(119, 41, 83, 0.08);
+  outline: none;
+  margin: 0 auto;
+}
+
+#previousEventsWrap summary:hover {
+  background-color: rgba(119, 41, 83, 0.08);
+  transform: translateY(-1px);
+}
+
+/* 6. Dynamic Links formatted as brand button badges */
+.btn-more-info {
+  display: inline-block;
+  padding: 0.8vh 2.5vw !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  border: 1px solid var(--color-brand) !important;
+  border-radius: 4px !important;
+  color: var(--color-brand) !important;
+  background-color: transparent !important;
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.btn-more-info:hover {
+  background-color: var(--color-brand) !important;
+  color: var(--color-bg) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(233, 84, 32, 0.2);
+}
+
+/* 7. Ticket Mockup CTA (from netlify reference site) */
+.ticket-mockup {
+  position: relative;
+  background-color: var(--color-bg);
+  border: 2px dashed var(--color-brand);
+  border-radius: 12px;
+  padding: 4vh 4vw;
+  margin: 4vh auto !important;
+  max-width: 800px;
+  width: 90% !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.ticket-mockup h3 {
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-bottom: 1.5vh;
+}
+
+.ticket-mockup p {
+  font-size: 1.1rem;
+  color: #333333;
+  margin: 0;
+}
+
+.ticket-mockup::before,
+.ticket-mockup::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  background-color: #ffffff;
+  border: 2px solid var(--color-brand);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.ticket-mockup::before {
+  left: -13px;
+  box-shadow: inset -3px 0 5px rgba(0, 0, 0, 0.02);
+}
+
+.ticket-mockup::after {
+  right: -13px;
+  box-shadow: inset 3px 0 5px rgba(0, 0, 0, 0.02);
+}
+
+/* 8. Buttons */
+.p-button--brand, .btn-primary {
+  background-color: var(--color-brand) !important;
+  border: 1px solid var(--color-brand) !important;
+  color: #ffffff !important;
+  border-radius: 4px;
+  font-weight: 500;
+  padding: 1.2vh 2.5vw;
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.p-button--brand:hover, .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(233, 84, 32, 0.25);
+  background-color: #d84315 !important;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background-color: transparent !important;
+  border: 1px solid var(--color-brand) !important;
+  color: var(--color-brand) !important;
+  border-radius: 4px;
+  font-weight: 500;
+  padding: 1.2vh 2.5vw;
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(233, 84, 32, 0.1);
+  background-color: rgba(233, 84, 32, 0.04) !important;
+  text-decoration: none;
+}
+
+/* 9. Centered speaker cards in scale pages (responsive hover) */
+.scale-page-card {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
+}
+
+.scale-page-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(119, 41, 83, 0.05);
+}
+
+/* 10. Footer Styling overrides with flex centering */
+footer {
+  text-align: center !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer .l-docs__main {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+footer nav.row {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+footer .has-cookie {
+  margin: 0 auto !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+footer a.is-dark {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+footer a.is-dark:hover {
+  text-decoration: underline;
+}
+
+footer ul.p-inline-list--middot {
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  padding: 0 !important;
+  list-style: none !important;
+  margin-top: 2vh !important;
+  width: 100% !important;
+}
+
+footer .p-inline-list__item a {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+footer .p-inline-list__item a:hover {
+  color: #ffffff !important;
+}
