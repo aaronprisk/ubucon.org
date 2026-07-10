@@ -23,7 +23,7 @@
     radial-gradient(circle at 15% 90%, rgba(119, 41, 83, 0.06) 0%, transparent 45%);
   padding: 8vh 2vw !important;
   border-bottom: 1px solid rgba(119, 41, 83, 0.06);
-  text-align: center;
+  text-align: left;
 }
 
 .p-strip--open-hero h2 {
@@ -41,8 +41,8 @@
   color: #333333 !important;
   margin-bottom: 4vh !important;
   max-width: 800px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 /* 3. Grid Glow Container (using vw/vh sizing for glowing spots) */
@@ -93,7 +93,7 @@
   width: 1280px !important;
   max-width: 100% !important;
   margin: 0 auto 4vh auto !important;
-  border-radius: 12px;
+  border-radius: 0px;
   border: 2px solid var(--color-border-accent);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   overflow: hidden;
@@ -173,7 +173,7 @@ table tbody tr:last-child td {
   overflow-y: auto;
   overflow-x: auto;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
+  border-radius: 0px;
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.02);
   background: #ffffff;
   -ms-overflow-style: none;  /* IE and Edge */
@@ -202,7 +202,7 @@ table tbody tr:last-child td {
   position: relative;
   background-color: var(--color-bg) !important;
   border: none !important;
-  border-radius: 12px !important;
+  border-radius: 0px !important;
   padding: 5vh 4vw !important;
   margin: 6vh auto !important;
   max-width: 800px;
@@ -455,21 +455,74 @@ section, .p-section, .p-strip {
   color: var(--color-brand) !important;
 }
 
-/* 15. Hero Logo Styling & Micro-animations */
+/* 15. Hero Logo Styling & Visual Layout */
 .p-strip--open-hero img.hero-logo {
   display: none !important;
-  max-height: 180px !important;
-  margin: 0 auto 4vh auto !important;
-  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  width: 100% !important;
+  max-width: 320px !important;
+  height: auto !important;
 }
 
 @media (min-width: 620px) {
+  .p-strip--open-hero .row {
+    display: flex !important;
+    align-items: center !important;
+  }
   .p-strip--open-hero img.hero-logo {
     display: block !important;
+    margin: 0 0 0 auto !important; /* Align to the right edge of the left column */
+  }
+  .p-strip--open-hero .col-6:first-child {
+    padding-right: 4vw !important; /* Gutter gap */
+  }
+  .p-strip--open-hero .col-6:last-child {
+    padding-left: 4vw !important;  /* Gutter gap */
   }
 }
 
-.p-strip--open-hero img.hero-logo:hover {
-  transform: scale(1.05);
+/* Specificity overrides to enforce left alignment throughout the hero strip */
+.p-strip--open-hero,
+.p-strip--open-hero h2,
+.p-strip--open-hero p,
+.p-strip--open-hero div {
+  text-align: left !important;
+}
+
+.p-strip--open-hero p {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* 16. Footer Links Custom Coloration (Standard Link Blue) */
+footer a,
+footer a:link,
+footer a:visited,
+.l-footer a,
+.l-footer a:link,
+.l-footer a:visited,
+footer .is-dark,
+footer .is-dark:link,
+footer .is-dark:visited,
+.l-footer .is-dark,
+.l-footer .is-dark:link,
+.l-footer .is-dark:visited {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+}
+
+footer a:hover,
+footer a:link:hover,
+footer a:visited:hover,
+.l-footer a:hover,
+.l-footer a:link:hover,
+.l-footer a:visited:hover,
+footer .is-dark:hover,
+footer .is-dark:link:hover,
+footer .is-dark:visited:hover,
+.l-footer .is-dark:hover,
+.l-footer .is-dark:link:hover,
+.l-footer .is-dark:visited:hover {
+  color: #0044aa !important;
+  text-decoration: underline !important;
 }
 
