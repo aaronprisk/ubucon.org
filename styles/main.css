@@ -3,8 +3,8 @@
 /* Custom Variables */
 :root {
   --color-brand: #e95420;       /* Ubuntu Orange */
-  --color-accent: #772953;      /* Canonical Aubergine */
-  --color-accent-dark: #2c001e; /* Dark Aubergine */
+  --color-accent: #000;      /* Canonical Aubergine */
+  --color-accent-dark: #000; /* Dark Aubergine */
   --color-bg: #ffffff;
   --color-bg-alt: #f7f7f7;
   --color-text: #111111;
@@ -202,26 +202,32 @@ table tbody tr:last-child td {
   box-shadow: 0 4px 10px rgba(233, 84, 32, 0.2);
 }
 
-/* 7. Ticket Mockup CTA (from netlify reference site) */
+/* 7. Formal Box CTA (replaces Ticket Mockup) */
 .ticket-mockup {
   position: relative;
-  background-color: var(--color-bg);
-  border: 2px dashed var(--color-brand);
-  border-radius: 12px;
-  padding: 4vh 4vw;
-  margin: 4vh auto !important;
+  background-color: var(--color-bg) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 5vh 4vw !important;
+  margin: 6vh auto !important;
   max-width: 800px;
   width: 90% !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 12px 40px rgba(119, 41, 83, 0.08) !important;
   overflow: hidden;
   box-sizing: border-box;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ticket-mockup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 48px rgba(119, 41, 83, 0.12) !important;
 }
 
 .ticket-mockup h3 {
   color: var(--color-accent);
   font-weight: 700;
-  margin-bottom: 1.5vh;
+  margin-bottom: 2vh;
 }
 
 .ticket-mockup p {
@@ -230,34 +236,16 @@ table tbody tr:last-child td {
   margin: 0;
 }
 
+/* Remove ticket cutout visual overlays */
 .ticket-mockup::before,
 .ticket-mockup::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 24px;
-  height: 24px;
-  background-color: #ffffff;
-  border: 2px solid var(--color-brand);
-  border-radius: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.ticket-mockup::before {
-  left: -13px;
-  box-shadow: inset -3px 0 5px rgba(0, 0, 0, 0.02);
-}
-
-.ticket-mockup::after {
-  right: -13px;
-  box-shadow: inset 3px 0 5px rgba(0, 0, 0, 0.02);
+  display: none !important;
 }
 
 /* 8. Buttons */
 .p-button--brand, .btn-primary {
-  background-color: var(--color-brand) !important;
-  border: 1px solid var(--color-brand) !important;
+  background-color: #0E8420 !important;
+  border: 1px solid #0E8420 !important;
   color: #ffffff !important;
   border-radius: 4px;
   font-weight: 500;
@@ -269,27 +257,27 @@ table tbody tr:last-child td {
 
 .p-button--brand:hover, .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(233, 84, 32, 0.25);
-  background-color: #d84315 !important;
+  box-shadow: 0 4px 12px rgba(14, 132, 32, 0.25);
+  background-color: #0A5F17 !important;
+  border-color: #0A5F17 !important;
   text-decoration: none;
 }
 
 .btn-secondary {
   background-color: transparent !important;
-  border: 1px solid var(--color-brand) !important;
-  color: var(--color-brand) !important;
+  border: 1px solid #000000 !important;
+  color: #000000 !important;
   border-radius: 4px;
   font-weight: 500;
   padding: 1.2vh 2.5vw;
   display: inline-block;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-secondary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(233, 84, 32, 0.1);
-  background-color: rgba(233, 84, 32, 0.04) !important;
+  background-color: #F2F2F2 !important;
   text-decoration: none;
 }
 
@@ -476,10 +464,16 @@ section, .p-section, .p-strip {
 
 /* 15. Hero Logo Styling & Micro-animations */
 .p-strip--open-hero img.hero-logo {
+  display: none !important;
   max-height: 180px !important;
-  display: block !important;
   margin: 0 auto 4vh auto !important;
   transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+@media (min-width: 620px) {
+  .p-strip--open-hero img.hero-logo {
+    display: block !important;
+  }
 }
 
 .p-strip--open-hero img.hero-logo:hover {
