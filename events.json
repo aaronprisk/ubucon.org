@@ -126,5 +126,12 @@
         "event": "UbuCon @ OpenSouthCode 2026",
         "date": "2026-06-26",
         "url": "https://www.opensouthcode.org/conferences/opensouthcode2026"
+    },
+    {
+        "coordinates": [12.976746, 77.575278],
+        "address": "Bull Temple Rd, Basavanagudi, Bengaluru, Karnataka 560004",
+        "event": "UbuCon India 2026",
+        "date": "2026-11-14",
+        "url": "https://ubucon.org/india"
     }
 ]
